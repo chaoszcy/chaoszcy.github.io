@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[记录下现状]]></title>
+    <url>%2F2019%2F07%2F23%2F%E8%AE%B0%E5%BD%95%E4%B8%8B%E7%8E%B0%E7%8A%B6%2F</url>
+    <content type="text"><![CDATA[2019-7-23：&#160; &#160; &#160; &#160;今天是正式开始写博客的第一天。&#160; &#160; &#160; &#160;在浅尝了C→→大数据→→机器学习→→深度学习后，兜兜转转又决定做回了Java开发。技能方面欠了一屁股的债，语言组织能力依旧感人，还欠着学校一篇论文。下决心写博客一方面是巩固知识，一方面是提醒自己还欠了多少“知识债”，另一方面就是为了锻炼自己的语言组织能力。&#160; &#160; &#160; &#160;目前在JavaWeb方向工作了一年半，现在的工作强度不高，老板也对我很好。可以现在的项目技术框架太落后了，都2019年了后端还在使用Struts（没错是1.0）+Hibernate的组合（别跟我说什么Kafka/Redis/Dubbo了，我们连Spring都没有），前端使用”原滋原味”的JQuery+CSS。同时公司几乎没有组织架构这种东西，我一个人身兼售前售后产品项目管理开发测试运维，没有编码规范，没有测试要求，没有交付流程。。。很感谢老板愿意接纳当年一无所知的我，但是这样的工作必然会限制我的成长，寻求更好的发展基本已成定局。&#160; &#160; &#160; &#160;曾经给自己定的目标是30岁之前进BAT，某次出差后发现工作日回不了家实在受不了（BAT最近的也得50公里，996的强度下每天开车回家基本不可能）。现在只能适当的修正下自己的小目标：30岁达到BAT水平，昆山地铁开通后进入BAT。]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[写给非科班非名校的我们]]></title>
     <url>%2F2019%2F07%2F23%2F%E5%86%99%E7%BB%99%E9%9D%9E%E7%A7%91%E7%8F%AD%E9%9D%9E%E5%90%8D%E6%A0%A1%E7%9A%84%E6%88%91%E4%BB%AC%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[&#160; &#160; &#160; &#160;“我C州3套房，身边同事最差清华毕业的，华为是什么辣鸡玩意？”的某类人请直接ALT+F4，这片文章，哦不，这整个博客不是写给你看的。]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Hexo搭建]]></title>
     <url>%2F2019%2F07%2F23%2FHexo%E6%90%AD%E5%BB%BA%2F</url>
     <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F07%2F10%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
