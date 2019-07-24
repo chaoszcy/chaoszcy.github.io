@@ -93,17 +93,18 @@
   };
 </script>
 
-  <meta name="description" content="为了莘莘的未来，爸爸要努力工作">
+  <meta name="description" content="BOMBroswer Object Model:浏览器对象模型。bom对象属于前端开发中很实用但并不特别常用的对象，若不做笔记容易遗忘生疏。包括了以下重要对象： ·navigator用以获取客户机（浏览器）信息，如浏览器名称、类型、版本等。例:navigator.appName;//浏览器名称 ·screen屏幕信息，如height,weight等。例：screen.weight; ·locati">
+<meta name="keywords" content="JavaWeb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo搭建">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/Hexo搭建/index.html">
+<meta property="og:title" content="JS的BOM和DOM对象">
+<meta property="og:url" content="http://yoursite.com/2019/07/24/JS的BOM对象/index.html">
 <meta property="og:site_name" content="编程笔记">
-<meta property="og:description" content="为了莘莘的未来，爸爸要努力工作">
+<meta property="og:description" content="BOMBroswer Object Model:浏览器对象模型。bom对象属于前端开发中很实用但并不特别常用的对象，若不做笔记容易遗忘生疏。包括了以下重要对象： ·navigator用以获取客户机（浏览器）信息，如浏览器名称、类型、版本等。例:navigator.appName;//浏览器名称 ·screen屏幕信息，如height,weight等。例：screen.weight; ·locati">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-22T16:23:12.378Z">
+<meta property="og:updated_time" content="2019-07-24T04:11:42.667Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo搭建">
-<meta name="twitter:description" content="为了莘莘的未来，爸爸要努力工作">
+<meta name="twitter:title" content="JS的BOM和DOM对象">
+<meta name="twitter:description" content="BOMBroswer Object Model:浏览器对象模型。bom对象属于前端开发中很实用但并不特别常用的对象，若不做笔记容易遗忘生疏。包括了以下重要对象： ·navigator用以获取客户机（浏览器）信息，如浏览器名称、类型、版本等。例:navigator.appName;//浏览器名称 ·screen屏幕信息，如height,weight等。例：screen.weight; ·locati">
 
 
 
@@ -111,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/23/Hexo搭建/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/24/JS的BOM对象/">
 
 
 
@@ -122,7 +123,7 @@
 </script>
 
   
-  <title>Hexo搭建 | 编程笔记</title>
+  <title>JS的BOM和DOM对象 | 编程笔记</title>
   
 
 
@@ -342,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/Hexo搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/JS的BOM对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="莘莘的爸爸">
@@ -359,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo搭建
+          <h1 class="post-title" itemprop="name headline">JS的BOM和DOM对象
 
               
             
@@ -385,10 +386,14 @@
                 
               
 
-              <time title="创建时间：2019-07-23 00:23:12" itemprop="dateCreated datePublished" datetime="2019-07-23T00:23:12+08:00">2019-07-23</time>
+              <time title="创建时间：2019-07-24 10:02:31 / 修改时间：12:11:42" itemprop="dateCreated datePublished" datetime="2019-07-24T10:02:31+08:00">2019-07-24</time>
             </span>
           
 
+          
+            
+
+            
           
 
           
@@ -425,7 +430,14 @@
       
 
       
-        
+        <h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><p>Broswer Object Model:浏览器对象模型。bom对象属于前端开发中很实用但并不特别常用的对象，若不做笔记容易遗忘生疏。包括了以下重要对象：</p>
+<h2 id="·navigator"><a href="#·navigator" class="headerlink" title="·navigator"></a>·navigator</h2><p>用以获取客户机（浏览器）信息，如浏览器名称、类型、版本等。例:<br>navigator.appName;//浏览器名称</p>
+<h2 id="·screen"><a href="#·screen" class="headerlink" title="·screen"></a>·screen</h2><p>屏幕信息，如height,weight等。例：<br>screen.weight;</p>
+<h2 id="·location"><a href="#·location" class="headerlink" title="·location"></a>·location</h2><p>请求的url相关信息。<br>location.href;//url地址</p>
+<h2 id="·history"><a href="#·history" class="headerlink" title="·history"></a>·history</h2><p>请求的url历史记录，用来实现页面的“前进”、“后退“等</p>
+<h2 id="·window（重要）"><a href="#·window（重要）" class="headerlink" title="·window（重要）"></a>·window（重要）</h2><p>窗口对象，JS的顶层对象，上述bom对象都是window对象的成员,另外alert,confirm等也都是window的方法，平时的alert(“aaa”)其实是window.alert(“aaa”)的简写。几个重要的方法：<br>window.open();//打开新窗口<br>window.opener();//得到创建该窗口的窗口，即父窗口对象<br>setInterval(“alert(‘aaa’);”,”3000”);//定时器操作，每3000ms执行一次alert<br>setTimeout(“alert(‘aaa’);”,”3000”);//定时器操作，3000ms之后执行一次alert<br>clearInterval(vid);//清除id为vid的interval定时器，vid是setInterval的返回值<br>clearTimeout(vid);同上</p>
+<h1 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h1><p>document object model:文档对象模型。dom主要有几个地方需要注意下：<br>·当你用js写document.xxxx.xxx时，document指的是整个html/xml文件。<br>·获取子节点时，document.getElementById(“aa”).childNodes会因为浏览器不同造成解析结果的不同，例如有些浏览器会将空格回车也当做子节点。所以getElementsByTagName()是比较好的做法。</p>
+
       
     </div>
 
@@ -450,6 +462,15 @@
 
     <footer class="post-footer">
       
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaWeb/" rel="tag"># JavaWeb</a>
+          
+        </div>
+      
 
       
       
@@ -459,15 +480,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/07/23/记录下现状/" rel="next" title="记录下现状">
+                <i class="fa fa-chevron-left"></i> 记录下现状
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/23/写给非科班非名校的我们/" rel="prev" title="写给非科班非名校的我们">
-                写给非科班非名校的我们 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,8 +532,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -575,6 +605,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM"><span class="nav-number">1.</span> <span class="nav-text">BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#·navigator"><span class="nav-number">1.1.</span> <span class="nav-text">·navigator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#·screen"><span class="nav-number">1.2.</span> <span class="nav-text">·screen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#·location"><span class="nav-number">1.3.</span> <span class="nav-text">·location</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#·history"><span class="nav-number">1.4.</span> <span class="nav-text">·history</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#·window（重要）"><span class="nav-number">1.5.</span> <span class="nav-text">·window（重要）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM"><span class="nav-number">2.</span> <span class="nav-text">DOM</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

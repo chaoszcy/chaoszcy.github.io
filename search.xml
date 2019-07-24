@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JS的BOM和DOM对象]]></title>
+    <url>%2F2019%2F07%2F24%2FJS%E7%9A%84BOM%E5%AF%B9%E8%B1%A1%2F</url>
+    <content type="text"><![CDATA[BOMBroswer Object Model:浏览器对象模型。bom对象属于前端开发中很实用但并不特别常用的对象，若不做笔记容易遗忘生疏。包括了以下重要对象： ·navigator用以获取客户机（浏览器）信息，如浏览器名称、类型、版本等。例:navigator.appName;//浏览器名称 ·screen屏幕信息，如height,weight等。例：screen.weight; ·location请求的url相关信息。location.href;//url地址 ·history请求的url历史记录，用来实现页面的“前进”、“后退“等 ·window（重要）窗口对象，JS的顶层对象，上述bom对象都是window对象的成员,另外alert,confirm等也都是window的方法，平时的alert(“aaa”)其实是window.alert(“aaa”)的简写。几个重要的方法：window.open();//打开新窗口window.opener();//得到创建该窗口的窗口，即父窗口对象setInterval(“alert(‘aaa’);”,”3000”);//定时器操作，每3000ms执行一次alertsetTimeout(“alert(‘aaa’);”,”3000”);//定时器操作，3000ms之后执行一次alertclearInterval(vid);//清除id为vid的interval定时器，vid是setInterval的返回值clearTimeout(vid);同上 DOMdocument object model:文档对象模型。dom主要有几个地方需要注意下：·当你用js写document.xxxx.xxx时，document指的是整个html/xml文件。·获取子节点时，document.getElementById(“aa”).childNodes会因为浏览器不同造成解析结果的不同，例如有些浏览器会将空格回车也当做子节点。所以getElementsByTagName()是比较好的做法。]]></content>
+      <tags>
+        <tag>JavaWeb</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[记录下现状]]></title>
     <url>%2F2019%2F07%2F23%2F%E8%AE%B0%E5%BD%95%E4%B8%8B%E7%8E%B0%E7%8A%B6%2F</url>
     <content type="text"><![CDATA[2019-7-23：&nbsp; &nbsp; &nbsp; &nbsp; 今天是正式开始写博客的第一天。&nbsp; &nbsp; &nbsp; &nbsp; 在浅尝了C→→大数据→→机器学习→→深度学习后，兜兜转转又决定做回了Java开发。技能方面欠了一屁股的债，语言组织能力依旧感人，还欠着学校一篇论文。下决心写博客一方面是巩固知识，一方面是提醒自己还欠了多少“知识债”，另一方面就是为了锻炼自己的语言组织能力。&nbsp; &nbsp; &nbsp; &nbsp; 目前在JavaWeb方向工作了一年半，现在的工作强度不高，老板也对我很好。可以现在的项目技术框架太落后了，都2019年了后端还在使用Struts（没错是1.0）+Hibernate的组合（别跟我说什么Kafka/Redis/Dubbo了，我们连Spring都没有），前端使用”原滋原味”的JQuery+CSS。同时公司几乎没有组织架构这种东西，我一个人身兼售前售后产品项目管理开发测试运维，没有编码规范，没有测试要求，没有交付流程。。。很感谢老板愿意接纳当年一无所知的我，但是这样的工作必然会限制我的成长，寻求更好的发展基本已成定局。&nbsp; &nbsp; &nbsp; &nbsp; 曾经给自己定的目标是30岁之前进BAT，某次出差后发现工作日回不了家实在受不了（BAT最近的也得50公里，996的强度下每天开车回家基本不可能）。现在只能适当的修正下自己的小目标：30岁达到BAT水平，昆山地铁开通后进入BAT。]]></content>
