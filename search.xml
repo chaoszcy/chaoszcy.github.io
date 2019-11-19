@@ -1,19 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[AJAX学习笔记（三）：ajax事件]]></title>
+    <url>%2F2019%2F11%2F19%2FAJAX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9Aajax%E4%BA%8B%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[Ajax事件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;监听ajax行为而触发的方法，在目前阶段的开发中还没用到过，先记一下。 ajaxComplete()：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当 Ajax 请求完成时注册要调用的处理程序。 ajaxError()：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当 Ajax 请求完成且出现错误时注册要调用的处理程序。 ajaxSuccess()：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当 Ajax 请求完成且未出现错误时注册要调用的处理程序。 ajaxSend()：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在 Ajax 请求发送之前要调用的处理程序。 ajaxStart()：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当首个 Ajax 请求完成开始时注册要调用的处理程序 ajaxStop()：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当所有 Ajax 请求完成时注册要调用的处理程序。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面用w3school的一个小例子来演示,实现了点击按钮发送ajax请求时，页面上显示文字“加载中”和相关loading图片，请求响应完成后图片消失的功能。 1234567891011121314151617181920212223242526&lt;head&gt; &lt;script type=&quot;text/javascript&quot; src=&quot;/jquery/jquery.js&quot;&gt;&lt;/script&gt; &lt;script type=&quot;text/javascript&quot;&gt; $(document).ready(function () &#123; $(&quot;#txt&quot;).ajaxStart(function () &#123; $(&quot;#wait&quot;).css(&quot;display&quot;, &quot;block&quot;); &#125;); $(&quot;#txt&quot;).ajaxComplete(function () &#123; $(&quot;#wait&quot;).css(&quot;display&quot;, &quot;none&quot;); &#125;); $(&quot;button&quot;).click(function () &#123; // operation &#125;); &#125;); &lt;/script&gt;&lt;/head&gt;&lt;body&gt;&lt;div id=&quot;txt&quot;&gt;&lt;h2&gt;ajax时间演示&lt;/h2&gt;&lt;/div&gt;&lt;button&gt;发送请求&lt;/button&gt;&lt;!--这里是要显示的图片：加载中--&gt;&lt;div id=&quot;wait&quot; style=&quot;display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;&quot;&gt; &lt;img src=&apos;/i/demo_wait.gif&apos; width=&quot;64&quot; height=&quot;64&quot;/&gt; &lt;br/&gt;加载中 ...&lt;/div&gt;&lt;/body&gt;]]></content>
+      <tags>
+        <tag>前端</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[AJAX学习笔记（二）：回调函数]]></title>
+    <url>%2F2019%2F11%2F19%2FAJAX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[回调函数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ajax返回的是一个jqXHR对象，jqXHR是XMLHttpRequest对象的一个超集。jqXHR保留了XMLHttpRequest的error()、success()、complete()方法，并提供了升级后的fail()、done()、always()来取代前三者。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ajax常用的回调函数有:beforeSend、fail/error、dataFilter、done/success、always/complete。 beforeSend(XMLHttpRequest)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在发送请求之前调用，并且传入一个 XMLHttpRequest 作为参数。 fail(function(jqXHR,textStatus,errorThrown)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在请求出错时调用。传入 XMLHttpRequest 对象，描述错误类型的字符串以及一个异常对象（如果有的话）。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XMLHttpRequest版本：error(XMLHttpRequest,textStatus,errorThrown)。 dataFilter(data,type)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在请求成功之后调用。传入返回的数据以及 “dataType” 参数的值。并且必须返回新的数据（可能是处理过的）传递给 success 回调函数，在success之前进行data预处理用。 done(function(data,textStatus,jqXHR)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当请求之后调用。传入返回后的数据，以及包含成功代码的字符串。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XMLHttpRequest版本：success(data,textStatus) always(function(data|jqXHR,textStatus,jqXHR|errorThrown)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当请求完成之后调用这个函数，无论成功或失败。传入 XMLHttpRequest 对象，以及一个包含成功或错误代码的字符串。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XMLHttpRequest版本：complete(XMLHttpRequest,textStatus) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;beforeSend()和dataFilter()是预处理函数，可以直接在ajax调用或事先在ajaxSetup中进行全局设置，例： 1234567891011121314$.ajaxSetup(&#123; beforeSend: function(XMLHttpRequest) &#123; //operation &#125; dataFilter: function(data, type) &#123; //operation console.log(data); console.log(type); &#125;&#125;);$.ajax(&#123; //...&#125;); &nbsp;&nbsp;&nbsp;&nbsp;beforeSend()是在发送请求前调用，dataFilter()是在获取响应后，进入done/success前调用。always/complete,done/success,fail/error这三个都是获取响应后调用，always/complete总是会调用，否则根据textStatus的值来决定调用done/success还是fail/error。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里记录下之前的项目中遇到的一个坑，先看代码: 123456789$.ajax(&#123; type: &quot;POST&quot;, url: /*...*/, dataType: &quot;json&quot;, async: false, success: function () &#123; query(); &#125;&#125;); 想在执行ajax后执行查询语句刷新页面，但success()总是进不去。原因在于ajax指定了dataTpye为”json”，但是后台并没有在request中写入json值，使得前端解析json出错，进入error(),此时textStatus返回值为”parsererror”。]]></content>
+      <tags>
+        <tag>前端</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[AJAX学习笔记（一）：发起请求]]></title>
+    <url>%2F2019%2F11%2F19%2FAJAX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82%2F</url>
+    <content type="text"><![CDATA[发起请求&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主要的发起请求的方式有三种：$.get(),$.post(),$.ajax()，另外一些getJSON()、getScript()都是ajax()的简写，不常用（其实get(),post()也是，但是相对用的多）。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ajax请求默认都是异步请求，若想执行同步请求，$.ajax()可以在请求时参数直接指定async的值，其他的可以在执行请求前进行设置： 1$.ajaxSettings.async = false; $(selector).get(url,data,success(response,status,xhr),dataType)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用GET方式来进行异步请求，返回值为字符串形式。参数详情：url：必选，ajax请求的地址。data：可选，object类型，发送至服务器的key/value数据会作为QueryString附加到请求URL中。success(response,status,xhr)：可选，规定当请求成功时运行的函数。当ajax返回成功(status为success)时自动调用该函数，回调函数详情见下文。dataType：可选，规定预计的服务器响应的数据类型。默认地jQuery 将智能判断类型。案例： 1234567891011$.get( &quot;data.php&quot;,&#123; id: &apos;123&apos;, name: &apos;青藤园&apos;, &#125;,function(data,state)&#123; //这里显示从服务器返回的数据 alert(data); //这里显示返回的状态 alert(state); &#125;) $(selector).post(url,data,success(response,status,xhr),dataType)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用POST方式来进行异步请求，与get类似。 $(selector).ajax([settings])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最完整的ajax请求方式，setting里涉及的参数过多，具体请参考w3school里的教程]]></content>
+      <tags>
+        <tag>前端</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[oracle取连续时间]]></title>
+    <url>%2F2019%2F11%2F19%2Foracle%E5%8F%96%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%2F</url>
+    <content type="text"><![CDATA[t.time字段中取连续5分钟 12select to_char(t.time, &apos;hh24&apos;) || &apos;:&apos; || lpad(floor(to_char(t.DRTIME, &apos;mi&apos;) / 5) * 5, 2, 0)from table t; 系统中取2018-01-01到2018-11-01（闭区间）之间所有自然天 123SELECT trunc(TO_DATE(&apos;2018-01-01&apos;, &apos;yyyy-MM-dd&apos;) + ROWNUM - 1) datelistFROM DUALCONNECT BY ROWNUM &lt;= trunc(to_date(&apos;2018-11-01&apos;, &apos;yyyy-MM-dd&apos;) - to_date(&apos;2018-01-01&apos;, &apos;yyyy-MM-dd&apos;)) + 1]]></content>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[TriggerBuilder的泛型]]></title>
+    <url>%2F2019%2F11%2F08%2FTriggerBuilder%E7%9A%84%E6%B3%9B%E5%9E%8B%2F</url>
+    <content type="text"><![CDATA[在实现一个Quartz定时任务时，看到这样一块代码： 12345CronTrigger c = TriggerBuilder.newTrigger() .withIdentity(triggerKey) .withSchedule(CronScheduleBuilder.cronSchedule(tbcq.getCronexpression())) .forJob(jobKey) .build(); 首先Trigger是个接口，CronTrigger是他的子借口，那么问题来了：TriggerBuilder看名字就知道是一个Trigger构造器，返回的肯定是个Trigger实现对象，子类接受父类要先做强制转型(父类转子类，向下转型)才行，那么上面CronTrigger c是怎么直接接受TriggerBuilder.built()的返回值的？先看一下bulid()返回值： 1234567public class TriggerBuilder&lt;T extends Trigger&gt; &#123; public T build() &#123; //... return (T) trig; &#125;&#125; 原来build()返回了一个Trigger的子类T，那么在上述代码中，T是怎么变成CronTrigger的呢？我们知道一般的泛型类是这样用的： 123456789101112131415161718public class Test &#123; public static void main(String[] args) &#123; //做了泛型约束，正常运行 A&lt;Integer&gt; a1 = new A&lt;&gt;(0); //未做泛型约束，正常运行 A&lt;String&gt; a2 = new A(&quot;a&quot;); //未做泛型约束，编译时不报错，运行时报错 A&lt;String&gt; a3 = new A(0); &#125; static class A&lt;T&gt; &#123; T value; A(T value) &#123; this.value = value; &#125; &#125;&#125; 基本上都是通过构造方法或是别的什么方法中的形参来进行泛型的传递，那我们来看看TriggerBuilder的构造方法： 123456789public class TriggerBuilder&lt;T extends Trigger&gt; &#123; private TriggerBuilder() &#123; &#125; public static TriggerBuilder&lt;Trigger&gt; newTrigger() &#123; return new TriggerBuilder&lt;Trigger&gt;(); &#125;&#125; 我们发现TriggerBuilder的构造方法被private了，不能直接调用，得通过newTrigger()来获得实例，newTrigger()返回一个TriggerBuilder&lt;Trigger&gt;，也就是说 12345CronTrigger c = TriggerBuilder.newTrigger()//到这里得到一个TriggerBuilder&lt;Trigger&gt;对象 .withIdentity(triggerKey) .withSchedule(CronScheduleBuilder.cronSchedule(tbcq.getCronexpression())) .forJob(jobKey) .build(); 继续往下，看第二行代码做了什么： 1234public TriggerBuilder&lt;T&gt; withIdentity(TriggerKey triggerKey) &#123; this.key = triggerKey; return this;&#125; withIdentity()返回一个TriggerBuilder&lt;T&gt;，由于之前一步newTrigger()时得到的是TriggerBuilder&lt;Trigger&gt;对象，所以这里返回的也是TriggerBuilder&lt;Trigger&gt;对象，也就是说： 12345CronTrigger c = TriggerBuilder.newTrigger()//到这里得到一个TriggerBuilder&lt;Trigger&gt;对象； .withIdentity(triggerKey) //到这里还是得到一个TriggerBuilder&lt;Trigger&gt;对象； .withSchedule(CronScheduleBuilder.cronSchedule(tbcq.getCronexpression())) .forJob(jobKey) .build(); 再往下： 1234public &lt;SBT extends T&gt; TriggerBuilder&lt;SBT&gt; withSchedule(ScheduleBuilder&lt;SBT&gt; schedBuilder) &#123; this.scheduleBuilder = schedBuilder; return (TriggerBuilder&lt;SBT&gt;) this;&#125; withSchedule()返回的是TriggerBuilder&lt;SBT&gt;对象，其中&lt;SBT extends T&gt;，我们先看看例子中传进来的是什么： 123456789public class CronScheduleBuilder extends ScheduleBuilder&lt;CronTrigger&gt; &#123; public static CronScheduleBuilder cronSchedule(String cronExpression) &#123; try &#123; return cronSchedule(new CronExpression(cronExpression)); &#125; catch (ParseException e) &#123; //... &#125; &#125;&#125; 可以看到CronScheduleBuilder.cronSchedule(tbcq.getCronexpression())返回了一个CronScheduleBuilder对象，而CronScheduleBuilder是ScheduleBuilder&lt;CronTrigger&gt;的子类，其中ScheduleBuilder是一个抽象泛型类 123public abstract class ScheduleBuilder&lt;T extends Trigger&gt; &#123; //...&#125; 这时候我们通过IDE确定了执行完.withSchedule(CronScheduleBuilder.cronSchedule(tbcq.getCronexpression()))之后我们得到了一个TriggerBuilder&lt;CronTrigger&gt;对象，也就是说 123456//我们通过传入ScheduleBuilder&lt;CronTrigger&gt;（或它的子类），确定了SBT为CronTrigger//于是返回值TriggerBuilder&lt;SBT&gt;变成了TriggerBuilder&lt;CronTrigger&gt;public &lt;SBT extends T&gt; TriggerBuilder&lt;SBT&gt; withSchedule(ScheduleBuilder&lt;SBT&gt; schedBuilder) &#123; this.scheduleBuilder = schedBuilder; return (TriggerBuilder&lt;SBT&gt;) this;&#125; 此时 12345CronTrigger c = TriggerBuilder.newTrigger()//到这里得到一个TriggerBuilder&lt;Trigger&gt;对象； .withIdentity(triggerKey) //到这里还是得到一个TriggerBuilder&lt;Trigger&gt;对象； .withSchedule(CronScheduleBuilder.cronSchedule(tbcq.getCronexpression())) //到这里得到了一个TriggerBuilder&lt;CronTrigger&gt;对象； .forJob(jobKey) .build(); 再下来forJob()返回的也是TriggerBuilder&lt;T&gt;，即TriggerBuilder&lt;CronTrigger&gt;对象，TriggerBuilder&lt;CronTrigger&gt;对象调用build()，返回T即CronTrigger对象。]]></content>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构]]></title>
+    <url>%2F2019%2F11%2F04%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%2F</url>
+    <content type="text"><![CDATA[平衡二叉树：一颗空数，或者左右两个子树的高度差绝对值小于等于1，并且所有子树也满足这个条件红黑树：红黑树是搜索二叉树的改版，搜索二叉树的搜索效率由深度决定，而普通的搜索二叉树可能会出现左右子树严重失衡的情况，导致搜索效率低下，这时就需要用到相对平衡的红黑树。1.每个节点都涂色，非红即黑2.root一定为黑3.所有叶结点都是黑色的4.红节点的子节点一定是黑5.空到叶结点或空子节点的每条路径，一定包含相同的黑节点红黑色的特性：确保没有一条路径会比其他路径长出俩倍。因而，红黑树是相对是接近平衡的二叉树。红黑树的修正有三种方式，变色、左旋转、右旋转在红黑树插入节点时，由于叶结点全是黑色的，再插入一个黑色的节点势必会破坏规则5，所以一般插入的都是红色节点。然而插入的红色节点，如果发现他的父节点也是红色的，则打破了规则4，此时就需要进行修正。应用场景：TreeSet,TreeMap的底层就是红黑树，JDK8以后HashMap也开始使用红黑树，以及数据库索引也用的红黑树B树：]]></content>
+      <tags>
+        <tag>编程基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[多线程学习笔记]]></title>
+    <url>%2F2019%2F11%2F04%2F%E5%A4%9A%E7%BA%BF%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[volatile：1.保证变量操作的可见性，就是一个线程改动了它，其他线程立即卡件2.禁止编译器指令重拍3.保证单次读写的原子性]]></content>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Spring学习笔记]]></title>
+    <url>%2F2019%2F11%2F04%2FSpring%2F</url>
+    <content type="text"><![CDATA[程序的耦合：原则：编译时不依赖，运行时依赖。原因：团队开发时，不必依赖人完成功能。解决方法：使用反射创建对象带来的新问题：类名和方法写死，后期需要修改源码解决方法：使用配置文件，通过读取配置文件来创建对象Spring工厂模式会创建所有配置好的对象放入map，需要时候再取出来，不会一直去创建对象。由于dao,service等类往往没有静态变量，不存在线程安全问题，所以系统可以共享同一个对象。Spring两种工厂类：BeanFactory:延迟加载，bean什么时候用什么时候创建ApplicationContext：配置文件一解析就创建对象 依赖注入DI的方式有三种：构造方法、set方式、注解注入注入的类型有三种：基本类型和String、其他Bean类型（必须在Spring配置文件中出现过）复杂类型（集合） 注解开发：xml文件中引入context相关依赖添加&lt;context:componet-scan base-package=””&gt;标签，base-pachage里填写要扫描的路径，之后在路径里用注解标记过的类都可以视为已被注册，注册类注解共有4中@Component:一般用来标记Bean@Controller:·········Controller@Service:············Service@Repository··········持久层四个注解的作用是一模一样的，含有一个参数value,表示bean的id,可以缺省，默认为被标记的类的类短名(首字母小写) 注入类注解：@Autowired:自动按照类型注入，如果有唯一的类型匹配就能注入成功。如果有不止一个的类型匹配时，会把变量名作为已注册bean的id去查找，找到即可注入。@Qualifier:在自动按照类型的基础上，再按照id注入。在给类成员注入时不能单独使用，但给方法形参注入时可以单独使用。@Resource(name=””)(常用):直接按照bean的id注入@Value:用于给基本类型和String注入值 其他注解：@Scope改变Bean的作用范围：参数value，取值和xml中scope相同，有singleton(单例),prototype(多例)，request（生命周期为一个request)，session（生命周期为一个session),globalsession(一直存在) XML和注解注入的比较：xml有点在于修改时不用改源码，缺点在于繁琐，以及会创造很多xml文件，不便于维护。所以配置如果经常修改的话，使用xml，否则用注解。 @ComponetScan(“”):同xml中的&lt;context:componet-scan base-package=””&gt;@Bean(“”):把方法的返回值写入容器，name即为bean的id，默认值为方法名@Configuration:把当前类注册为Spring的配置类，没多大用@import(class对象):导入其他配置类 AOP:aop:config：切面开始&lt;aop:aspect id=”logAdvicer” ref=”logger”&gt;:切面描述,id表示切面id，ref写通知类注册在Spring的beanName，等于注解@Aspect&lt;aop:pointcut id=”pt1” execution=”public void com.xxx.xxx.Service.update()”&gt;:通用的切入点表达式,描述需要加强的类和方法。等同于 12@pointcut(execution(...))private void pt1()&#123;&#125; &lt;aop:before method=”printLog” pointcut=”execution(…)”&gt;或&lt;apo:before method=”printLog” pointcut-ref=”pt1”&gt;:前置通知，method里写logAdvicer的方法，表示在运行pt1前先运行printLog，等于 12@Before(&quot;pt1()&quot;)private printLog()&#123;&#125; aop:after-returning,aop:after-throwing,aop:after：分别表示后置通知，异常同时和最终通知aop:around环绕通知使用注解AOP时，需要在xml里添加aop:aspectj-autoproxy,等于@EnableAspectJAutoProxy]]></content>
+      <tags>
+        <tag>web</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[设计模式学习笔记]]></title>
+    <url>%2F2019%2F11%2F04%2F%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[Step1:十种经典的设计模式1.单例模式2.策略模式3.代理模式和装饰模式：静态代理模式和装饰模式很像，两者都是给原有行为进行改造升级。先看装饰者模式: 1234public interface Animal &#123; public void eat();&#125;` Person有个默认实现类Man 123456public class Human implements Animal&#123; @Override public void eat() &#123; System.out.println(&quot;吃！&quot;); &#125;&#125; 这时候妈妈表示作为人类，吃饭前要洗手，然后我们看看装饰器是怎么实现的 1234567891011121314151617181920212223public class WashDecorate implements Animal &#123; private Animal animal; WashDecorate(Animal animal)&#123; this.animal = animal; &#125; @Override public void eat() &#123; wash(); animal.eat(); &#125; private void wash()&#123; System.out.printf(&quot;洗手&quot;); &#125;&#125;public static void main(String[] args) &#123; Animal animal = new Animal(); animal = new WashDecorate(animal); animal.eat();&#125; 装饰器接受Animal的实现类对象，然后给这个对象进行加工。如果要实现先刷牙、再洗手、再吃饭的改造，则只需再建一个CleanTeethDecorate的装饰器，然后再将被WashDecorate装饰过的human对象用CleanTeethDecorate装饰下即可。然后我们再看静态代理如何实现： 123456789101112131415161718192021222324public class WashProxy implements Animal &#123; private Animal animal; //在这里也可以写成装饰器模式一样的构造函数传入Animal对象的形式。 //但是new Human()是代理模式独有的写法，装饰器不能这样写。 WashProxy() &#123; animal = new Human(); &#125; @Override public void eat() &#123; wash(); person.eat(); &#125; private void wash() &#123; System.out.println(&quot;洗手&quot;); &#125;&#125;public static void main(String[] args) &#123; Animal animal = new WashProxy(); animal.eat();&#125; 两者的实现代码几乎是一样的，区别在于设计思路和解决问题的场景不同：装饰者模式更强调一个功能的一层一层纵向升级改造，如”吃饭-&gt;洗手吃饭-&gt;刷牙洗手吃饭“。它更强调俄罗斯套娃一样的一层接一层”套“的动作。典型应用就是IO类的几个拓展类。而代理模式更多的是借助某个类的特定功能进行横向拓展，或者反过来理解为将几个类的公共代码进行抽象提取。比如你需要一个BabyProxy类实现”cry()→eat()→stopCring()”，你可以理解为WashProxy和BabyProxy都借助Human的eat()方法实现了功能拓展，也可以理解为Human提取了WashProxy和BabyProxy中复用的代码eat()。Spring的AOP就是后者的思想。动态代理的话大致就是通过反射来创建代理类，有兴趣的话直接看Spring的AOP相关内容。4.观察者模式6.适配器模式7.命令模式8.组合模式9.简单工厂模式案例：Spring IOC、JDBC注册驱动10.模板工厂模式 Step2:设计模式分类：创建型模式：简单工厂模式、模板工厂模式、抽象工厂模式结构性模式：适配器模式、桥接模式、装饰模式、外观模式、享元模式、代理模式行为模式：命令模式、中介者模式、观察者模式、状态模式、策略模式Step3:Spring、SpringMVC中的设计模式]]></content>
+      <tags>
+        <tag>编程基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SpringMVC学习笔记(一)]]></title>
+    <url>%2F2019%2F11%2F04%2FSpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[重要组件：前端控制器：DispatcherServlet：接受用户请求，响应，各种中间结果的转发，相当于中央处理器，它一个组件减少了其他所有组件间的耦合。后端控制器：Handler:也叫Controller处理器映射器：HandlerMapping：通过请求url查找Handler，返回一个Handler执行链HandlerExecutionChain处理器适配器：HandlerAdapter：去执行Handler（这里用到了设计模式中的适配器模式，相当于为传入的不同类型的Handler统一了调用接口），返回ModelAndView视图解析器：ViewResolver：解析ModelAndView，生成并返回真正的View 执行步骤： 客户端发request→ DispatcherServlet接收到request，传给HandlerMapping→ HandlerMapping通过XML或注解找到需要的Handler，并回传给DispatcherServlet→ DispatcherServlet将得到的Handler交给HandlerAdapter→ HandlerAdapter执行Handler→ Handler执行，生成ModelAndView交给HandlerAdapter→ HandlerAdapter将ModelAndView交回给DispatcherServlet→ DispatcherServlet请求ViewResolver去解析ModelAndView→ ViewResolver解析ModelAndView生成View(JSP、Freemaker、PDF等等)→ ViewResolver将View交还给DispatcherServlet→ DispatcherServlet将数据装入response→ DispatcherServlet返回响应→END 配置SpringMVC：XML形式 注册前端控制器1&lt;Servlet-]]></content>
+      <tags>
+        <tag>web</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[接受http请求头时遇到的小问题]]></title>
     <url>%2F2019%2F10%2F22%2Fsocket%E6%8E%A5%E5%8F%97http%E6%95%B0%E6%8D%AE%E6%97%B6%E7%9A%84%E5%B0%8F%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;某天跟凯尔特人球迷群(Boston Sucks，我是欧文球迷)里的某编程小学弟探讨socket编程时，遇到了这样一个问题，当时是随手写的一个socket服务器接受程序，代码如下： 1234567891011121314151617181920212223242526272829303132333435363738//自嗨的代码，就不写注释啦public static void main(String[] args) throws Exception &#123; int port = 80; ServerSocket server = new ServerSocket(port); System.out.println(&quot;server将一直等待连接的到来&quot;); while (true) &#123; Socket socket = server.accept(); MThread m = new MThread(socket); m.start(); &#125; &#125; static class MThread extends Thread &#123; Socket socket = null; private MThread(Socket socket) &#123; this.socket = socket; &#125; public void run() &#123; try &#123; InputStream inputStream = socket.getInputStream(); byte[] bytes = new byte[1024]; int len; StringBuilder sb = new StringBuilder(); String result = new String(&quot;&quot;); while ((len = inputStream.read(bytes)) != -1) &#123; result = new String(bytes, 0, len, &quot;UTF-8&quot;); sb.append(result); &#125; System.out.println(&quot;get message from client: &quot; + sb); inputStream.close(); socket.close(); &#125; catch (Exception e) &#123; e.printStackTrace(); &#125; &#125; &#125; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;程序写完了，用chrome在地址栏敲127.0.0.1的时候，除了那句”server将一直等待连接的到来”外始终出不来结果，浏览器端也一直在等服务器端的响应，也不抛异常，就这样卡着了。打断点后发现是什么问题呢，程序在inputStream.read()的时候阻塞了。那么问题来了，inputStream什么时候会返回值？答：buff读满、或者读到输入流的结尾(在读取socket时则是客户端关闭socket)。反之，达不到上述两个条件则read()会发生阻塞。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说了那么多，在我们的例子里，到底咋回事？（此处省略一堆问号相关表情）——————真相在此——————&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在上述例子中，我们用浏览器访问127.0.0.1，服务器端只会收到一个http的请求头，大约500-600左右的长度，肯定填不满new byte[1024]的buff。其次，由于使用chrome去发出请求，chrome发出的请求默认为长连接，即http请求头里Connection参数值为Keep-Alive。当http连接为长连接时，发送完数据并不会立刻关闭socket，所以inputStream获取不到流的结尾，于是就一直堵在那了。那长连接的http请求头数据，怎么判断它是否传输完毕了？两种方法：1.响应头里有个参数叫Content-Length，这里的值就是请求头的长度，只要想办法把这个参数弄到手，read()的时候指定长度即可。2.更简单粗暴点，看到”\r\n\r\n”这四个字节时就说明到头了，当然你得保证请求头中间不要出现这四个字节。于是，代码这样改一改就行了： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748public static void main(String[] args) throws Exception &#123; // 监听指定的端口 int port = 80; ServerSocket server = new ServerSocket(port); // server将一直等待连接的到来 System.out.println(&quot;server将一直等待连接的到来&quot;); while (true) &#123; Socket socket = server.accept(); MThread m = new MThread(socket); m.start(); &#125;// server.close(); &#125; static class MThread extends Thread &#123; Socket socket = null; private MThread(Socket socket) &#123; this.socket = socket; &#125; public void run() &#123; // 建立好连接后，从socket中获取输入流，并建立缓冲区进行读取 try &#123; InputStream inputStream = socket.getInputStream(); byte[] bytes = new byte[1024]; int len; StringBuilder sb = new StringBuilder(); String result = new String(&quot;&quot;); /** 改动开始 **/// while ((len = inputStream.read(bytes)) != -1) &#123;// result = new String(bytes, 0, len, &quot;UTF-8&quot;);// sb.append(result);// &#125; while (!result.endsWith(&quot;\r\n\r\n&quot;)) &#123; len = inputStream.read(bytes); result = new String(bytes, 0, len, &quot;UTF-8&quot;); sb.append(result); &#125; /** 改动结束 **/ System.out.println(&quot;get message from client: &quot; + sb); inputStream.close(); socket.close(); &#125; catch (Exception e) &#123; e.printStackTrace(); &#125; &#125; &#125; console也顺利的完成了输出： 12345678910111213server将一直等待连接的到来get message from client: GET / HTTP/1.1Host: 127.0.0.1Connection: keep-aliveCache-Control: max-age=0Upgrade-Insecure-Requests: 1User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36Sec-Fetch-Mode: navigateSec-Fetch-User: ?1Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3Sec-Fetch-Site: noneAccept-Encoding: gzip, deflate, brAccept-Language: zh-CN,zh;q=0.9,en;q=0.8,ru;q=0.7 但是整个过程下来还有几个没解决的问题： 1.为什么浏览器地址栏上敲一次回车，服务器这边会收到三次（而不是一次）且一模一样的请求？大致猜想：这可能跟chrome发请求的机制有关，safari也有这个现象，应该和AppleWebKit内核相关2.在线程内部执行断点调试时，由于问题1所描述的情况浏览器发了三个请求，于是服务器这产生了三个线程，打上断点后三个线程依次执行，这时候三个请求的中的一个会读出空字符，并且len返回-1（表示socket已断开），几次观察这种现象都是出现在第二个请求上，这是啥情况？大致猜想：由于打上了断点ide让三个线程强制阻塞实现了异步运行，而在线程类run()方法内部有socket.close()方法，会不会是因为后面的某个线程运行时socket已经被第一个线程的socket.close()给关闭了，所以接受到的是空数据。但这只是大致猜想，具体的情况还不得而知。]]></content>
       <tags>
-        <tag>JavaWeb</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[AJAX回调函数]]></title>
-    <url>%2F2019%2F08%2F01%2FAJAX%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[ajax回调函数共有5种:beforeSend、error、dataFilter、success、complete。 beforeSend(XMLHttpRequest)&nbsp; &nbsp; &nbsp; &nbsp; 在发送请求之前调用，并且传入一个 XMLHttpRequest 作为参数。 error(XMLHttpRequest, textStatus, errorThrown)&nbsp; &nbsp; &nbsp; &nbsp; 在请求出错时调用。传入 XMLHttpRequest 对象，描述错误类型的字符串以及一个异常对象（如果有的话） dataFilter(data, type)&nbsp; &nbsp; &nbsp; &nbsp; 在请求成功之后调用。传入返回的数据以及 “dataType” 参数的值。并且必须返回新的数据（可能是处理过的）传递给 success 回调函数，在success之前进行data预处理用。 success(data, textStatus)&nbsp; &nbsp; &nbsp; &nbsp; 当请求之后调用。传入返回后的数据，以及包含成功代码的字符串。 complete(XMLHttpRequest, textStatus)&nbsp; &nbsp; &nbsp; &nbsp; 当请求完成之后调用这个函数，无论成功或失败。传入 XMLHttpRequest 对象，以及一个包含成功或错误代码的字符串。&nbsp; &nbsp; &nbsp; &nbsp; beforeSend()和dataFilter()是预处理函数，可以直接在ajax调用或事先在ajaxSetup中进行全局设置，例： 1234567891011121314$.ajaxSetup(&#123; beforeSend: function(XMLHttpRequest) &#123; //operation &#125; dataFilter: function(data, type) &#123; //operation console.log(data); console.log(type); &#125;&#125;);$.ajax(&#123; //...&#125;); &nbsp; &nbsp; &nbsp; &nbsp; beforeSend()是在发送请求前调用，dataFilter()是在获取响应后，进入success()前调用。&nbsp; &nbsp; &nbsp; &nbsp; complete,success,error这三个都是获取响应后调用，complete()总是会调用，根据textStatus的值来决定调用success()还是error()。这里记录下之前的项目中遇到的一个坑，先看代码: 123456789$.ajax(&#123; type: &quot;POST&quot;, url: /*...*/, dataType: &quot;json&quot;, async: false, success: function () &#123; query(); &#125;&#125;); 想在执行ajax后执行查询语句刷新页面，但success()总是进不去。原因在于ajax指定了dataTpye为”json”，但是后台并没有在request中写入json值，使得前端解析json出错，进入error(),此时textStatus返回值为”parsererror”。 附：dataType参数详解：类型：String预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息来智能判断，比如 XML MIME 类型就被识别为 XML。在 1.4 中，JSON 就会生成一个 JavaScript 对象，而 script 则会执行这个脚本。随后服务器端返回的数据会根据这个值解析后，传递给回调函数。可用值:· “xml”: 返回 XML 文档，可用 jQuery 处理。· “html”: 返回纯文本 HTML 信息；包含的 script 标签会在插入 dom 时执行。· “script”: 返回纯文本 JavaScript 代码。不会自动缓存结果。除非设置了 “cache” 参数。注意：在远程请求时(不在同一个域下)，所有 POST 请求都将转为 GET 请求。（因为将使用 DOM 的 script标签来加载）· “json”: 返回 JSON 数据 。· “jsonp”: JSONP 格式。使用 JSONP 形式调用函数时，如 “myurl?callback=?” jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。· “text”: 返回纯文本字符串]]></content>
-      <tags>
-        <tag>JavaWeb</tag>
+        <tag>web</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -29,7 +107,8 @@
     <url>%2F2019%2F07%2F24%2FJS%E7%9A%84BOM%E5%AF%B9%E8%B1%A1%2F</url>
     <content type="text"><![CDATA[BOMBroswer Object Model:浏览器对象模型。bom对象属于前端开发中很实用但并不特别常用的对象，若不做笔记容易遗忘生疏。包括了以下重要对象： ·navigator用以获取客户机（浏览器）信息，如浏览器名称、类型、版本等。例:navigator.appName;//浏览器名称 ·screen屏幕信息，如height,weight等。例：screen.weight; ·location请求的url相关信息。location.href;//url地址 ·history请求的url历史记录，用来实现页面的“前进”、“后退“等 ·window（重要）窗口对象，JS的顶层对象，上述bom对象都是window对象的成员,另外alert,confirm等也都是window的方法，平时的alert(“aaa”)其实是window.alert(“aaa”)的简写。几个重要的方法：window.open();//打开新窗口window.opener();//得到创建该窗口的窗口，即父窗口对象setInterval(“alert(‘aaa’);”,”3000”);//定时器操作，每3000ms执行一次alertsetTimeout(“alert(‘aaa’);”,”3000”);//定时器操作，3000ms之后执行一次alertclearInterval(vid);//清除id为vid的interval定时器，vid是setInterval的返回值clearTimeout(vid);同上 DOMdocument object model:文档对象模型。dom主要有几个地方需要注意下：·当你用js写document.xxxx.xxx时，document指的是整个html/xml文件。·获取子节点时，document.getElementById(“aa”).childNodes会因为浏览器不同造成解析结果的不同，例如有些浏览器会将空格回车也当做子节点。所以getElementsByTagName()是比较好的做法。]]></content>
       <tags>
-        <tag>JavaWeb</tag>
+        <tag>前端</tag>
+        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -39,10 +118,5 @@
       <tags>
         <tag>随笔</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hexo搭建]]></title>
-    <url>%2F2019%2F07%2F23%2FHexo%E6%90%AD%E5%BB%BA%2F</url>
-    <content type="text"></content>
   </entry>
 </search>

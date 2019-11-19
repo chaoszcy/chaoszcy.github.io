@@ -93,16 +93,18 @@
   };
 </script>
 
-  <meta name="description" content="为了莘莘的未来，爸爸要努力工作">
-<meta property="og:type" content="website">
-<meta property="og:title" content="编程笔记">
-<meta property="og:url" content="http://yoursite.com/tags/随笔/index.html">
+  <meta name="description" content="回调函数&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ajax返回的是一个jqXHR对象，jqXHR是XMLHttpRequest对象的一个超集。jqXHR保留了XMLHttpRequest的error()、success()、complete()方法，并提供了升级后的fail()、done()、always()来取代前三者。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp">
+<meta name="keywords" content="前端,web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX学习笔记（二）：回调函数">
+<meta property="og:url" content="http://yoursite.com/2019/11/19/AJAX学习笔记（二）：回调函数/index.html">
 <meta property="og:site_name" content="编程笔记">
-<meta property="og:description" content="为了莘莘的未来，爸爸要努力工作">
+<meta property="og:description" content="回调函数&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ajax返回的是一个jqXHR对象，jqXHR是XMLHttpRequest对象的一个超集。jqXHR保留了XMLHttpRequest的error()、success()、complete()方法，并提供了升级后的fail()、done()、always()来取代前三者。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-19T10:42:14.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编程笔记">
-<meta name="twitter:description" content="为了莘莘的未来，爸爸要努力工作">
+<meta name="twitter:title" content="AJAX学习笔记（二）：回调函数">
+<meta name="twitter:description" content="回调函数&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ajax返回的是一个jqXHR对象，jqXHR是XMLHttpRequest对象的一个超集。jqXHR保留了XMLHttpRequest的error()、success()、complete()方法，并提供了升级后的fail()、done()、always()来取代前三者。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp">
 
 
 
@@ -110,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/tags/随笔/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/19/AJAX学习笔记（二）：回调函数/">
 
 
 
@@ -121,7 +123,7 @@
 </script>
 
   
-  <title>标签: 随笔 | 编程笔记</title>
+  <title>AJAX学习笔记（二）：回调函数 | 编程笔记</title>
   
 
 
@@ -169,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,7 +241,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -321,106 +323,209 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>随笔<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/AJAX学习笔记（二）：回调函数/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="莘莘的爸爸">
+      <meta itemprop="description" content="为了莘莘的未来，爸爸要努力工作">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/07/28/一些小目标/" itemprop="url">
-            
-              <span itemprop="name">一些小目标</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">AJAX学习笔记（二）：回调函数
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-28T19:29:49+08:00" content="2019-07-28">
-          07-28
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
 
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-19 18:14:33 / 修改时间：18:42:14" itemprop="dateCreated datePublished" datetime="2019-11-19T18:14:33+08:00">2019-11-19</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a><font size="7">回调函数</font></h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ajax返回的是一个jqXHR对象，jqXHR是XMLHttpRequest对象的一个超集。jqXHR保留了XMLHttpRequest的error()、success()、complete()方法，并提供了升级后的fail()、done()、always()来取代前三者。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ajax常用的回调函数有:beforeSend、fail/error、dataFilter、done/success、always/complete。<br><br></p>
+<h2 id="beforeSend-XMLHttpRequest"><a href="#beforeSend-XMLHttpRequest" class="headerlink" title="beforeSend(XMLHttpRequest)"></a>beforeSend(XMLHttpRequest)</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在发送请求之前调用，并且传入一个 XMLHttpRequest 作为参数。</p>
+<h2 id="fail-function-jqXHR-textStatus-errorThrown"><a href="#fail-function-jqXHR-textStatus-errorThrown" class="headerlink" title="fail(function(jqXHR,textStatus,errorThrown)"></a>fail(function(jqXHR,textStatus,errorThrown)</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在请求出错时调用。传入 XMLHttpRequest 对象，描述错误类型的字符串以及一个异常对象（如果有的话）。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XMLHttpRequest版本：error(XMLHttpRequest,textStatus,errorThrown)。</p>
+<h2 id="dataFilter-data-type"><a href="#dataFilter-data-type" class="headerlink" title="dataFilter(data,type)"></a>dataFilter(data,type)</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在请求成功之后调用。传入返回的数据以及 “dataType” 参数的值。并且必须返回新的数据（可能是处理过的）传递给 success 回调函数，在success之前进行data预处理用。</p>
+<h2 id="done-function-data-textStatus-jqXHR"><a href="#done-function-data-textStatus-jqXHR" class="headerlink" title="done(function(data,textStatus,jqXHR)"></a>done(function(data,textStatus,jqXHR)</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当请求之后调用。传入返回后的数据，以及包含成功代码的字符串。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XMLHttpRequest版本：success(data,textStatus)</p>
+<h2 id="always-function-data-jqXHR-textStatus-jqXHR-errorThrown"><a href="#always-function-data-jqXHR-textStatus-jqXHR-errorThrown" class="headerlink" title="always(function(data|jqXHR,textStatus,jqXHR|errorThrown)"></a>always(function(data|jqXHR,textStatus,jqXHR|errorThrown)</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当请求完成之后调用这个函数，无论成功或失败。传入 XMLHttpRequest 对象，以及一个包含成功或错误代码的字符串。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XMLHttpRequest版本：complete(XMLHttpRequest,textStatus)<br><br><br><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;beforeSend()和dataFilter()是预处理函数，可以直接在ajax调用或事先在ajaxSetup中进行全局设置，例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$.ajaxSetup(&#123;</span><br><span class="line">	beforeSend: function(XMLHttpRequest) &#123;</span><br><span class="line">	//operation</span><br><span class="line">	&#125;</span><br><span class="line">	dataFilter: function(data, type) &#123;</span><br><span class="line">		//operation</span><br><span class="line">		console.log(data);</span><br><span class="line">		console.log(type);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">	//...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/23/记录下现状/" itemprop="url">
-            
-              <span itemprop="name">记录下现状</span>
-            
-          </a>
-        
-      </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;beforeSend()是在发送请求前调用，dataFilter()是在获取响应后，进入done/success前调用。always/complete,done/success,fail/error这三个都是获取响应后调用，always/complete总是会调用，否则根据textStatus的值来决定调用done/success还是fail/error。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里记录下之前的项目中遇到的一个坑，先看代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type: &quot;POST&quot;,</span><br><span class="line">	url: /*...*/,</span><br><span class="line">	dataType: &quot;json&quot;,</span><br><span class="line">	async: false,</span><br><span class="line">	success: function () &#123;</span><br><span class="line">		query();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-23T01:48:04+08:00" content="2019-07-23">
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+<p>想在执行ajax后执行查询语句刷新页面，但success()总是进不去。<font color="red">原因在于ajax指定了dataTpye为”json”，但是后台并没有在request中写入json值，</font>使得前端解析json出错，进入error(),此时textStatus返回值为”parsererror”。</p>
 
       
     </div>
 
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/19/AJAX学习笔记（一）：发起请求/" rel="next" title="AJAX学习笔记（一）：发起请求">
+                <i class="fa fa-chevron-left"></i> AJAX学习笔记（一）：发起请求
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/19/AJAX学习笔记（三）：ajax事件/" rel="prev" title="AJAX学习笔记（三）：ajax事件">
+                AJAX学习笔记（三）：ajax事件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -440,8 +545,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -512,6 +626,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#回调函数"><span class="nav-number">1.</span> <span class="nav-text">回调函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#beforeSend-XMLHttpRequest"><span class="nav-number">1.1.</span> <span class="nav-text">beforeSend(XMLHttpRequest)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fail-function-jqXHR-textStatus-errorThrown"><span class="nav-number">1.2.</span> <span class="nav-text">fail(function(jqXHR,textStatus,errorThrown)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dataFilter-data-type"><span class="nav-number">1.3.</span> <span class="nav-text">dataFilter(data,type)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#done-function-data-textStatus-jqXHR"><span class="nav-number">1.4.</span> <span class="nav-text">done(function(data,textStatus,jqXHR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#always-function-data-jqXHR-textStatus-jqXHR-errorThrown"><span class="nav-number">1.5.</span> <span class="nav-text">always(function(data|jqXHR,textStatus,jqXHR|errorThrown)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -638,6 +769,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   <script src="/js/next-boot.js?v=7.2.0"></script>
 
@@ -651,6 +786,8 @@
 
   
 
+
+  
 
 
   

@@ -93,16 +93,18 @@
   };
 </script>
 
-  <meta name="description" content="为了莘莘的未来，爸爸要努力工作">
-<meta property="og:type" content="website">
-<meta property="og:title" content="编程笔记">
-<meta property="og:url" content="http://yoursite.com/tags/随笔/index.html">
+  <meta name="description" content="程序的耦合：原则：编译时不依赖，运行时依赖。原因：团队开发时，不必依赖人完成功能。解决方法：使用反射创建对象带来的新问题：类名和方法写死，后期需要修改源码解决方法：使用配置文件，通过读取配置文件来创建对象Spring工厂模式会创建所有配置好的对象放入map，需要时候再取出来，不会一直去创建对象。由于dao,service等类往往没有静态变量，不存在线程安全问题，所以系统可以共享同一个对象。Spri">
+<meta name="keywords" content="web,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring学习笔记">
+<meta property="og:url" content="http://yoursite.com/2019/11/04/Spring/index.html">
 <meta property="og:site_name" content="编程笔记">
-<meta property="og:description" content="为了莘莘的未来，爸爸要努力工作">
+<meta property="og:description" content="程序的耦合：原则：编译时不依赖，运行时依赖。原因：团队开发时，不必依赖人完成功能。解决方法：使用反射创建对象带来的新问题：类名和方法写死，后期需要修改源码解决方法：使用配置文件，通过读取配置文件来创建对象Spring工厂模式会创建所有配置好的对象放入map，需要时候再取出来，不会一直去创建对象。由于dao,service等类往往没有静态变量，不存在线程安全问题，所以系统可以共享同一个对象。Spri">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-19T10:41:59.828Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编程笔记">
-<meta name="twitter:description" content="为了莘莘的未来，爸爸要努力工作">
+<meta name="twitter:title" content="Spring学习笔记">
+<meta name="twitter:description" content="程序的耦合：原则：编译时不依赖，运行时依赖。原因：团队开发时，不必依赖人完成功能。解决方法：使用反射创建对象带来的新问题：类名和方法写死，后期需要修改源码解决方法：使用配置文件，通过读取配置文件来创建对象Spring工厂模式会创建所有配置好的对象放入map，需要时候再取出来，不会一直去创建对象。由于dao,service等类往往没有静态变量，不存在线程安全问题，所以系统可以共享同一个对象。Spri">
 
 
 
@@ -110,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/tags/随笔/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/04/Spring/">
 
 
 
@@ -121,7 +123,7 @@
 </script>
 
   
-  <title>标签: 随笔 | 编程笔记</title>
+  <title>Spring学习笔记 | 编程笔记</title>
   
 
 
@@ -169,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,7 +241,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -321,106 +323,219 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>随笔<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/04/Spring/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="莘莘的爸爸">
+      <meta itemprop="description" content="为了莘莘的未来，爸爸要努力工作">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/07/28/一些小目标/" itemprop="url">
-            
-              <span itemprop="name">一些小目标</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Spring学习笔记
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-28T19:29:49+08:00" content="2019-07-28">
-          07-28
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
 
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-04 17:02:50" itemprop="dateCreated datePublished" datetime="2019-11-04T17:02:50+08:00">2019-11-04</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-19 18:41:59" itemprop="dateModified" datetime="2019-11-19T18:41:59+08:00">2019-11-19</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>程序的耦合：<br>原则：编译时不依赖，运行时依赖。<br>原因：团队开发时，不必依赖人完成功能。<br>解决方法：使用反射创建对象<br>带来的新问题：类名和方法写死，后期需要修改源码<br>解决方法：使用配置文件，通过读取配置文件来创建对象<br>Spring工厂模式会创建所有配置好的对象放入map，需要时候再取出来，不会一直去创建对象。由于dao,service等类往往没有静态变量，不存在线程安全问题，所以系统可以共享同一个对象。<br>Spring两种工厂类：<br>BeanFactory:延迟加载，bean什么时候用什么时候创建<br>ApplicationContext：配置文件一解析就创建对象</p>
+<p>依赖注入DI的方式有三种：<br>构造方法、set方式、注解注入<br>注入的类型有三种：<br>基本类型和String、其他Bean类型（必须在Spring配置文件中出现过）<br>复杂类型（集合）</p>
+<p>注解开发：<br>xml文件中引入context相关依赖<br>添加&lt;context:componet-scan base-package=””&gt;标签，base-pachage里填写要扫描的路径，之后在路径里用注解标记过的类都可以视为已被注册，注册类注解共有4中<br>@Component:一般用来标记Bean<br>@Controller:·········Controller<br>@Service:············Service<br>@Repository··········持久层<br>四个注解的作用是一模一样的，含有一个参数value,表示bean的id,可以缺省，默认为被标记的类的类短名(首字母小写)</p>
+<p>注入类注解：<br>@Autowired:自动按照类型注入，如果有唯一的类型匹配就能注入成功。如果有不止一个的类型匹配时，会把变量名作为已注册bean的id去查找，找到即可注入。<br>@Qualifier:在自动按照类型的基础上，再按照id注入。在给类成员注入时不能单独使用，但给方法形参注入时可以单独使用。<br>@Resource(name=””)(常用):直接按照bean的id注入<br>@Value:用于给基本类型和String注入值</p>
+<p>其他注解：<br>@Scope<br>改变Bean的作用范围：参数value，取值和xml中scope相同，有singleton(单例),prototype(多例)，request（生命周期为一个request)，session（生命周期为一个session),globalsession(一直存在)</p>
+<p>XML和注解注入的比较：xml有点在于修改时不用改源码，缺点在于繁琐，以及会创造很多xml文件，不便于维护。<br>所以配置如果经常修改的话，使用xml，否则用注解。</p>
+<p>@ComponetScan(“”):同xml中的&lt;context:componet-scan base-package=””&gt;<br>@Bean(“”):把方法的返回值写入容器，name即为bean的id，默认值为方法名<br>@Configuration:把当前类注册为Spring的配置类，没多大用<br>@import(class对象):导入其他配置类</p>
+<p>AOP:<br><a href="aop:config" target="_blank" rel="noopener">aop:config</a>：切面开始<br>&lt;aop:aspect id=”logAdvicer” ref=”logger”&gt;:切面描述,id表示切面id，ref写通知类注册在Spring的beanName，等于注解@Aspect<br>&lt;aop:pointcut id=”pt1” execution=”public void com.xxx.xxx.Service.update()”&gt;:通用的切入点表达式,描述需要加强的类和方法。等同于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@pointcut(execution(...))</span><br><span class="line">private void pt1()&#123;&#125;</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/23/记录下现状/" itemprop="url">
-            
-              <span itemprop="name">记录下现状</span>
-            
-          </a>
-        
-      </h2>
+<p>&lt;aop:before method=”printLog” pointcut=”execution(…)”&gt;或<br>&lt;apo:before method=”printLog” pointcut-ref=”pt1”&gt;:前置通知，method里写logAdvicer的方法，表示在运行pt1前先运行printLog，等于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Before(&quot;pt1()&quot;)</span><br><span class="line">private printLog()&#123;&#125;</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-23T01:48:04+08:00" content="2019-07-23">
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+<p><a href="aop:after-returning" target="_blank" rel="noopener">aop:after-returning</a>,<a href="aop:after-throwing" target="_blank" rel="noopener">aop:after-throwing</a>,<a href="aop:after" target="_blank" rel="noopener">aop:after</a>：分别表示后置通知，异常同时和最终通知<br><a href="aop:around" target="_blank" rel="noopener">aop:around</a>环绕通知<br>使用注解AOP时，需要在xml里添加<a href="aop:aspectj-autoproxy" target="_blank" rel="noopener">aop:aspectj-autoproxy</a>,等于@EnableAspectJAutoProxy</p>
 
       
     </div>
 
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/04/设计模式/" rel="next" title="设计模式学习笔记">
+                <i class="fa fa-chevron-left"></i> 设计模式学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/04/多线程/" rel="prev" title="多线程学习笔记">
+                多线程学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -638,6 +753,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   <script src="/js/next-boot.js?v=7.2.0"></script>
 
@@ -651,6 +770,8 @@
 
   
 
+
+  
 
 
   
