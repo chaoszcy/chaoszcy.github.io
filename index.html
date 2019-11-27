@@ -868,13 +868,23 @@ ajaxComplete()：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当 Ajax 请求完成时注
                 
               
 
-              <time title="创建时间：2019-11-19 11:48:45 / 修改时间：18:44:52" itemprop="dateCreated datePublished" datetime="2019-11-19T11:48:45+08:00">2019-11-19</time>
+              <time title="创建时间：2019-11-19 11:48:45" itemprop="dateCreated datePublished" datetime="2019-11-19T11:48:45+08:00">2019-11-19</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-20 12:33:20" itemprop="dateModified" datetime="2019-11-20T12:33:20+08:00">2019-11-20</time>
+              </span>
             
           
 
@@ -915,8 +925,8 @@ ajaxComplete()：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当 Ajax 请求完成时注
         
           
             <p>
-              t.time字段中取连续5分钟
-select to_char(t.time, &apos;hh24&apos;) || &apos;:&apos; || lpad(floor(to_char(t.DRTIME, &apos;mi&apos;) / 5) * 5, 2, 0)from table t;
+              案例1t.time字段中取连续5分钟（向下取整），例如14:22:17就取到14:20
+select to_char(t.time, &apos;hh24&apos;) || &apos;:&apos; || lpad(floor(to_char(t.time, &apos;mi&apos;) / 
               ...
             </p>
           <!--noindex-->

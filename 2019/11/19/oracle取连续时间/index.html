@@ -93,18 +93,18 @@
   };
 </script>
 
-  <meta name="description" content="t.time字段中取连续5分钟 12select to_char(t.time, &amp;apos;hh24&amp;apos;) || &amp;apos;:&amp;apos; || lpad(floor(to_char(t.DRTIME, &amp;apos;mi&amp;apos;) / 5) * 5, 2, 0)from table t;  系统中取2018-01-01到2018-11-01（闭区间）之间所有自然天 123SELEC">
+  <meta name="description" content="案例1t.time字段中取连续5分钟（向下取整），例如14:22:17就取到14:20 12select to_char(t.time, &amp;apos;hh24&amp;apos;) || &amp;apos;:&amp;apos; || lpad(floor(to_char(t.time, &amp;apos;mi&amp;apos;) / 5) * 5, 2, 0)from table t;  lpad:用来填充字符串，第一个参数是待">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oracle取连续时间">
 <meta property="og:url" content="http://yoursite.com/2019/11/19/oracle取连续时间/index.html">
 <meta property="og:site_name" content="编程笔记">
-<meta property="og:description" content="t.time字段中取连续5分钟 12select to_char(t.time, &amp;apos;hh24&amp;apos;) || &amp;apos;:&amp;apos; || lpad(floor(to_char(t.DRTIME, &amp;apos;mi&amp;apos;) / 5) * 5, 2, 0)from table t;  系统中取2018-01-01到2018-11-01（闭区间）之间所有自然天 123SELEC">
+<meta property="og:description" content="案例1t.time字段中取连续5分钟（向下取整），例如14:22:17就取到14:20 12select to_char(t.time, &amp;apos;hh24&amp;apos;) || &amp;apos;:&amp;apos; || lpad(floor(to_char(t.time, &amp;apos;mi&amp;apos;) / 5) * 5, 2, 0)from table t;  lpad:用来填充字符串，第一个参数是待">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-19T10:44:52.095Z">
+<meta property="og:updated_time" content="2019-11-20T04:33:20.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle取连续时间">
-<meta name="twitter:description" content="t.time字段中取连续5分钟 12select to_char(t.time, &amp;apos;hh24&amp;apos;) || &amp;apos;:&amp;apos; || lpad(floor(to_char(t.DRTIME, &amp;apos;mi&amp;apos;) / 5) * 5, 2, 0)from table t;  系统中取2018-01-01到2018-11-01（闭区间）之间所有自然天 123SELEC">
+<meta name="twitter:description" content="案例1t.time字段中取连续5分钟（向下取整），例如14:22:17就取到14:20 12select to_char(t.time, &amp;apos;hh24&amp;apos;) || &amp;apos;:&amp;apos; || lpad(floor(to_char(t.time, &amp;apos;mi&amp;apos;) / 5) * 5, 2, 0)from table t;  lpad:用来填充字符串，第一个参数是待">
 
 
 
@@ -386,13 +386,23 @@
                 
               
 
-              <time title="创建时间：2019-11-19 11:48:45 / 修改时间：18:44:52" itemprop="dateCreated datePublished" datetime="2019-11-19T11:48:45+08:00">2019-11-19</time>
+              <time title="创建时间：2019-11-19 11:48:45" itemprop="dateCreated datePublished" datetime="2019-11-19T11:48:45+08:00">2019-11-19</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-20 12:33:20" itemprop="dateModified" datetime="2019-11-20T12:33:20+08:00">2019-11-20</time>
+              </span>
             
           
 
@@ -430,11 +440,24 @@
       
 
       
-        <p>t.time字段中取连续5分钟</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select to_char(t.time, &apos;hh24&apos;) || &apos;:&apos; || lpad(floor(to_char(t.DRTIME, &apos;mi&apos;) / 5) * 5, 2, 0)</span><br><span class="line">from table t;</span><br></pre></td></tr></table></figure>
+        <h1 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h1><p>t.time字段中取连续5分钟（向下取整），例如14:22:17就取到14:20</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select to_char(t.time, &apos;hh24&apos;) || &apos;:&apos; || lpad(floor(to_char(t.time, &apos;mi&apos;) / 5) * 5, 2, 0)</span><br><span class="line">from table t;</span><br></pre></td></tr></table></figure>
 
-<p>系统中取2018-01-01到2018-11-01（闭区间）之间所有自然天</p>
+<p>lpad:用来填充字符串，第一个参数是待填充参数，第二个参数是填充后参数，第三个参数是填充字符。这里的意思就是将floor(to_char(t.DRTIME, ‘mi’) / 5) * 5的值填充到2位，不够的格子用0来填。<br>||:链接符，等于java.lang.String里的’+’。<br>整个sql就是通过除5乘5的操作取到整5的倍数，然后通过字符串拼接完整操作。<br><br></p>
+<h1 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h1><p>系统中取2018-01-01到2018-11-01（闭区间）之间所有自然天</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT trunc(TO_DATE(&apos;2018-01-01&apos;, &apos;yyyy-MM-dd&apos;) + ROWNUM - 1) datelist</span><br><span class="line">FROM DUAL</span><br><span class="line">CONNECT BY ROWNUM &lt;= trunc(to_date(&apos;2018-11-01&apos;, &apos;yyyy-MM-dd&apos;) - to_date(&apos;2018-01-01&apos;, &apos;yyyy-MM-dd&apos;)) + 1</span><br></pre></td></tr></table></figure>
+
+<p>connect by：相当于用递归进行树的遍历。<br>关键字一览：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">start with ：设置起点，省略后默认以全部行为起点。</span><br><span class="line">connect by [condition] ：与一般的条件一样作用于当前列，但是在满足条件后，会以全部列作为下一层级递归（没有其他条件的话）。</span><br><span class="line">prior ： 表示上一层级的标识符。经常用来对下一层级的数据进行限制。不可以接伪列。</span><br><span class="line">level ：伪列，表示当前深度。</span><br><span class="line">connect_by_root() ：显示根节点列。经常用来分组。</span><br><span class="line">connect_by_isleaf ：1是叶子节点，0不是叶子节点。在制作树状表格时必用关键字。</span><br><span class="line">sys_connect_by_path() ：将递归过程中的列进行拼接。</span><br><span class="line">nocycle , connect_by_iscycle : 在有循环结构的查询中使用。</span><br><span class="line">siblings : 保留树状结构，对兄弟节点进行排序</span><br></pre></td></tr></table></figure>
+
+<p>基本用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM table t</span><br><span class="line">WHERE 1 = 1</span><br><span class="line">START WITH [condition] --定义查询的起点, 可以使用子查询</span><br><span class="line">CONNECT BY [PRIOR COLUMN1 = COLUMN2]; --定义父子关系</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select *</span><br><span class="line">   from myemp</span><br><span class="line">   start with employee_id = 101</span><br><span class="line">connect by prior employee_id = manager_id;  -- 找下属</span><br><span class="line">-- connect by employee_id = prior manager_id;  --找上司</span><br></pre></td></tr></table></figure>
+
+<p>prior简单理解：用来标注结果集从哪开始，放在employee_id这边表示结果的第一行是id为101的员工，最后一行是他的最后一个下属（向下查询）。放在manager_id表示结果的第一行是最后一个下属，最后一行是101这个员工（向上查询）。<br>案例中整个sql的意思就是每行取date+rownum-1的日期，随着rownum自增不停从日历往后取日期，直到rownum小于两个日期的差，就等于取到了两个日期间所有的自然天。</p>
+
       
     </div>
 
@@ -533,8 +556,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -605,6 +637,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#案例1"><span class="nav-number">1.</span> <span class="nav-text">案例1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#案例2"><span class="nav-number">2.</span> <span class="nav-text">案例2</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
