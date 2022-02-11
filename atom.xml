@@ -42,24 +42,4 @@
     
   </entry>
   
-  <entry>
-    <title></title>
-    <link href="http://example.com/2022/02/12/hello-world/"/>
-    <id>http://example.com/2022/02/12/hello-world/</id>
-    <published>2022-02-11T18:21:39.963Z</published>
-    <updated>2022-02-11T19:05:49.092Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printf(&quot;hello world&quot;);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
 </feed>
