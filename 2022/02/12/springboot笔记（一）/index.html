@@ -16,16 +16,17 @@
   <meta name="author" content="朱晨奕">
   <meta name="keywords" content="">
   
-    <meta name="description" content="我要进微软！">
+    <meta name="description" content="1.maven的parent标签，一方面是引入了子项目必要的依赖，另一方面是用来做版本管理。例如spring-boot-dependencies.pom文件中已经声明了activemq,jdbc等依赖的版本，我们web应用中引入spring-boot-starter-web时就不需要再指定他们的版本了，他们将直接使用spring-boot-dependencies中的版本号。（继承关系为：spri">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springboot笔记（一）">
 <meta property="og:url" content="http://example.com/2022/02/12/springboot%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="朱晨奕的博客">
-<meta property="og:description" content="我要进微软！">
+<meta property="og:description" content="1.maven的parent标签，一方面是引入了子项目必要的依赖，另一方面是用来做版本管理。例如spring-boot-dependencies.pom文件中已经声明了activemq,jdbc等依赖的版本，我们web应用中引入spring-boot-starter-web时就不需要再指定他们的版本了，他们将直接使用spring-boot-dependencies中的版本号。（继承关系为：spri">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-11T18:31:24.000Z">
-<meta property="article:modified_time" content="2022-02-11T18:31:24.833Z">
+<meta property="article:modified_time" content="2022-02-12T12:46:15.067Z">
 <meta property="article:author" content="朱晨奕">
+<meta property="article:tag" content="spring">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -197,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      988 字
     </span>
   
 
@@ -206,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      9 分钟
     </span>
   
 
@@ -238,12 +239,35 @@
             <h1 style="display: none">springboot笔记（一）</h1>
             
             <div class="markdown-body">
-              
+              <p>1.maven的parent标签，一方面是引入了子项目必要的依赖，另一方面是用来做版本管理。例如spring-boot-dependencies.pom文件中已经声明了activemq,jdbc等依赖的版本，我们web应用中引入spring-boot-starter-web时就不需要再指定他们的版本了，他们将直接使用spring-boot-dependencies中的版本号。（继承关系为：spring-boot-dependencies → spring-boot-parent → spring-boot-starters → spring-boot-starter-web）<br>
+<br/><br>
+2.springboot默认scan主程序MainApplication所在的package和子包<br>
+<br/><br>
+3.@Configuration标签替代之前注册bean的xml文件，用@Bean注册组件（默认单例模式）<br>
+<br/><br>
+4.proxyBeanMethods，代理模式，默认为true：<br>
+full:@Configuration(proxyBeanMethod=true)，全代理模式，组件为单例<br>
+lite:@Configutation(proxyBeanMethod=false)，轻量级代理模式，每次获取组件都会调用一次构造方法，非单例模式。好处是不用做单例检查，使应用启动更快。但由于每次都是重新构建实例，实例间将不存在依赖。<br>
+<br/><br>
+5.@Import：注解提供了@Bean注解的功能，同时还有原来Spring基于 xml 配置文件里的<import>标签组织多个分散的xml文件的功能<br>
+@ConditionalXXX：有条件的注入组件<br>
+@ImportResource：导入beans.xml资源<br>
+<br/><br>
+6.@ConfigurationProperties(prifix=“”)读取配置文件中的值，与@Value效果类似。标记后该类不会进入容器，需要用@Componet等注解注册到容器，或者在config类上使用@EnableConfigurationProperties进行注册（见下文）<br>
+@EnableConfigurationProperties(User.class)，与@ConfigurationProperties一同使用，标记在@Configuration的类中（即需要标记在config类中），开启User的读取配置功能，并且将User注入至容器</p>
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/spring/">spring</a>
+                    
+                  </div>
                 
               </div>
               

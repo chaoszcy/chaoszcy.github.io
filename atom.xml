@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-11T18:31:24.833Z</updated>
+  <updated>2022-02-12T12:46:15.067Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,11 +21,20 @@
     <link href="http://example.com/2022/02/12/springboot%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://example.com/2022/02/12/springboot%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</id>
     <published>2022-02-11T18:31:24.000Z</published>
-    <updated>2022-02-11T18:31:24.833Z</updated>
+    <updated>2022-02-12T12:46:15.067Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.maven的parent标签，一方面是引入了子项目必要的依赖，另一方面是用来做版本管理。例如spring-boot-dependencies.pom文件中已经声明了activemq,jdbc等依赖的版本，我们web应用中引入spring-boot-starter-web时就不需要再指定他们的版本了，他们将直接使用spring-boot-dependencies中的版本号。（继承关系为：spring-boot-dependencies → spring-boot-parent → spring-boot-starters → spring-boot-starter-web）<br><br/><br>2.springboot默认scan主程序MainApplication所在的package和子包<br><br/><br>3.@Configuration标签替代之前注册bean的xml文件，用@Bean注册组件（默认单例模式）<br><br/><br>4.proxyBeanMethods，代理模式，默认为true：<br>full:@Configuration(proxyBeanMethod=true)，全代理模式，组件为单例<br>lite:@Configutation(proxyBeanMethod=false)，轻量级代理模式，每次获取组件都会调用一次构造方法，非单例模式。好处是不用做单例检查，使应用启动更快。但由于每次都是重新构建实例，实例间将不存在依赖。<br><br/><br>5.@Import：注解提供了@Bean注解的功能，同时还有原来Spring基于 xml 配置文件里的<import>标签组织多个分散的xml文件的功能<br>@ConditionalXXX：有条件的注入组件<br>@ImportResource：导入beans.xml资源<br><br/><br>6.@ConfigurationProperties(prifix=“”)读取配置文件中的值，与@Value效果类似。标记后该类不会进入容器，需要用@Componet等注解注册到容器，或者在config类上使用@EnableConfigurationProperties进行注册（见下文）<br>@EnableConfigurationProperties(User.class)，与@ConfigurationProperties一同使用，标记在@Configuration的类中（即需要标记在config类中），开启User的读取配置功能，并且将User注入至容器</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;1.maven的parent标签，一方面是引入了子项目必要的依赖，另一方面是用来做版本管理。例如spring-boot-dependencies.pom文件中已经声明了activemq,jdbc等依赖的版本，我们web应用中引入spring-boot-starter-web</summary>
+      
     
     
     
     
+    <category term="spring" scheme="http://example.com/tags/spring/"/>
     
   </entry>
   
@@ -34,11 +43,23 @@
     <link href="http://example.com/2022/02/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://example.com/2022/02/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</id>
     <published>2022-02-11T18:31:14.000Z</published>
-    <updated>2022-02-11T18:31:14.571Z</updated>
+    <updated>2022-02-12T17:18:47.089Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下的顺序排序。请完成一个函数，输入这样的一个二维数字和整数，判断数组中是否含有该整数。（剑指offer P38）<br>思路：<br>1　　2　　8　　9<br>2　　4　　9　　12<br>4　　7　　10　　13<br>5　　8　　11　　15</p><p>这题阶梯关键是找准起点，类似的数组题第一反应都是先从a<sub>0</sub><sub>0</sub>开始，如图左上角1。但是从1开始的话会发现问题变得很复杂，每次移动都有向下向右两种选择，必然会有个别数经历了多次遍历，所以起点应该从右上/左下开始。以上图9为例，9是第一行最大的以及第四列最小的。若输入比9小则排除9下面的三个数字，查找9左边的三列，指针向左移动；同理，若输入比9大则指针向下移动。</p><p>代码：</p><figure class="highlight java"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">method</span><span class="hljs-params">(<span class="hljs-type">int</span> num, <span class="hljs-type">int</span>[][] matrix)</span> &#123;<br>        <span class="hljs-keyword">if</span> (matrix == <span class="hljs-literal">null</span> || matrix.length == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rows</span> <span class="hljs-operator">=</span> matrix.length; <span class="hljs-comment">//行数</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">columns</span> <span class="hljs-operator">=</span> matrix[<span class="hljs-number">0</span>].length; <span class="hljs-comment">//列数</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> columns - <span class="hljs-number">1</span>; <span class="hljs-comment">//横坐标。第一次做时这里少了-1，会导致指针越界</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; <span class="hljs-comment">//纵坐标</span><br>        <span class="hljs-keyword">while</span> (i &gt;= <span class="hljs-number">0</span> &amp;&amp; j &lt;= rows - <span class="hljs-number">1</span>) &#123;<span class="hljs-comment">//注意边界，纵坐标从0开始到rows - 1</span><br>            <span class="hljs-keyword">if</span> (matrix[i][j] == num) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (matrix[i][j] &gt; num) &#123;<br>                i = i - <span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (matrix[i][j] &lt; num) &#123;<br>                j = j + <span class="hljs-number">1</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br><br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;1.在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下的顺序排序。请完成一个函数，输入这样的一个二维数字和整数，判断数组中是否含有该整数。（剑指offer P38）&lt;br&gt;
+思路：&lt;br&gt;
+1　　2　　8　　9&lt;br&gt;
+2　　4　　9　　12&lt;br&gt;</summary>
+      
     
     
     
     
+    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
